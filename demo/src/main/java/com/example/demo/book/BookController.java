@@ -19,7 +19,7 @@ public class BookController {
     }
 
     @GetMapping
-    public List<Book> hello(){
+    public List<Book> bookList(){
         return bookService.bookList();
     }
 }
