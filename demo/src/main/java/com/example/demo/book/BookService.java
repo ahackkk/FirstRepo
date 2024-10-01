@@ -6,22 +6,13 @@ import java.util.List;
 
 @Component
 public class BookService {
+
+    private final BookRepository bookRepository;
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
     public List<Book> bookList() {
-        return List.of(
-                new Book(
-                        1,
-                        "1984",
-                        270,
-                        300,
-                        "J.Oruel"
-                ),
-                new Book(
-                        2,
-                        "Горжость и предубеждение",
-                        383,
-                        400,
-                        "Jane Osten"
-                )
-        );
+        return bookRepository.findAll();
     }
 }

@@ -1,6 +1,22 @@
 package com.example.demo.book;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table
 public class Book {
+
+    @Id
+    @SequenceGenerator(
+            name = "books",
+            sequenceName = "books",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "books"
+    )
+
     private int id;
     private String name;
     private int pages;
