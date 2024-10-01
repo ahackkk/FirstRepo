@@ -17,7 +17,7 @@ public class Book {
             generator = "books"
     )
 
-    private int id;
+    private Long id;
     private String name;
     private int pages;
     private int price;
@@ -26,7 +26,7 @@ public class Book {
     public Book(){
     }
 
-    public Book(int id, String name, int pages, int price, String author){
+    public Book(Long id, String name, int pages, int price, String author){
         this.id = id;
         this.name = name;
         this.pages = pages;
@@ -41,11 +41,11 @@ public class Book {
         this.author = author;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
