@@ -1,0 +1,32 @@
+POST http://localhost:8080/book_list/
+Content-Type: application/json
+Content-Length: 101
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "name": "Baizak & Timur forever",
+  "pages": 14230,
+  "price": 124231,
+  "author": "Bruno Mars"
+}
+
+###
+
+POST http://localhost:8080/book_list/
+Content-Type: application/json
+Content-Length: 68
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "name": "Almanbek",
+  "pages": 0,
+  "price": 0,
+  "author": ""
+}
+
+###
+

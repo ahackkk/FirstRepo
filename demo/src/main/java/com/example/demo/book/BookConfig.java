@@ -13,14 +13,12 @@ public class BookConfig {
     CommandLineRunner commandLineRunner(BookRepository repository) {
         return args -> {
             Book Dorian_Gray = new Book(
-                    1L,
                     "The Picture of Dorian Gray",
                     198,
                     1600,
                     "George Wasilton"
             );
             Book Vavilons_Richest_Men = new Book(
-                    2L,
                     "Richest men of Vavilon",
                     172,
                     1200,
