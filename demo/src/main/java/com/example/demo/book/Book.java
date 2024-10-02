@@ -23,10 +23,10 @@ public class Book {
     private int price;
     private String author;
 
-    public Book(){
+    public Book() {
     }
 
-    public Book(Long id, String name, int pages, int price, String author){
+    public Book(Long id, String name, int pages, int price, String author) {
         this.id = id;
         this.name = name;
         this.pages = pages;
@@ -34,7 +34,7 @@ public class Book {
         this.author = author;
     }
 
-    public Book(String name, int pages, int price, String author){
+    public Book(String name, int pages, int price, String author) {
         this.name = name;
         this.pages = pages;
         this.price = price;

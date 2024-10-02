@@ -9,6 +9,7 @@ import java.util.Optional;
 public class BookService {
 
     private final BookRepository bookRepository;
+
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
@@ -20,7 +21,7 @@ public class BookService {
     public void addNewBook(Book book) {
         Optional<Book> bookByName = bookRepository
                 .findBookByName(book.getName());
-        if (bookByName.isPresent()){
+        if (bookByName.isPresent()) {
             throw new IllegalStateException("Книга с таким названием уже существуется");
 
         }
