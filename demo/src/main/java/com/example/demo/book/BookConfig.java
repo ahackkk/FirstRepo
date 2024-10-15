@@ -23,6 +23,18 @@ public class BookConfig {
                     1200,
                     "One wise man"
             );
+            Book Jeane_Eair = new Book(
+                    "Geane_Eair",
+                    340,
+                    4100,
+                    "Nicolas Jackson"
+            );
+            Book SAT = new Book(
+                    "SAT_Reading",
+                    240,
+                    5700,
+                    "Erica Meltzer"
+            );
 
             repository.saveAll(
                     List.of(Dorian_Gray, Vavilons_Richest_Men)
