@@ -35,7 +35,12 @@ public class BookConfig {
                     5700,
                     "Erica Meltzer"
             );
-
+            Book Sarancha = new Book(
+                    "Johnny",
+                    340,
+                    4100,
+                    "Samsung"
+            );
             repository.saveAll(
                     List.of(Dorian_Gray, Vavilons_Richest_Men)
             );
