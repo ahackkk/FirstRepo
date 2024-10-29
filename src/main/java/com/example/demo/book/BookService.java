@@ -26,8 +26,7 @@ public class BookService {
         Optional<Book> bookByName = bookRepository
                 .findBookByName(book.getName());
         if (bookByName.isPresent()) {
-            throw new IllegalStateException("Книга с таким названием уже существуется");
-
+            throw new IllegalStateException("Книга с таким названием уже существует");
         }
         bookRepository.save(book);
     }
@@ -35,7 +34,7 @@ public class BookService {
     public void deleteBook(Long book_id) {
         boolean exists = bookRepository.existsById(book_id);
         if (!exists) {
-            throw new IllegalStateException("book with id " + " doesnt'exists");
+            throw new IllegalStateException("Book with id " + " does not exist");
         }
         bookRepository.deleteById(book_id);
     }
@@ -46,7 +45,7 @@ public class BookService {
                            String author) {
         Book book = bookRepository.findById(bookId)
                 .orElseThrow(() -> new IllegalStateException(
-                        "book with id " + bookId + " doesn't exists"));
+                        "Book with id " + bookId + " doesn't exist"));
 
         if (name != null && name.length() > 0 && !Objects.equals(book.getName(), name)) {
             book.setName(name);
