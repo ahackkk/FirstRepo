@@ -13,22 +13,29 @@ public class BookConfig {
     CommandLineRunner commandLineRunner(
             BookRepository repository){
         return args -> {
-            Book life_ex = new Book(
-                    "Жизненый опыт",
-                    91,
-                    400,
-                    "Baizak.N, Begaim.A"
+            Book picture = new Book(
+                    "Картина Дориана Грэя",
+                    198,
+                    1400,
+                    "Оскар Уайльд"
             );
 
-            Book gordosty = new Book(
-                    "Гордость и предубеждение",
-                    382,
-                    350,
-                    "Jane Osten"
+            Book reachest = new Book(
+                    "Самый богатый человек в Вавилоне",
+                    242,
+                    1200,
+                    "Джордж Самюэль Клейсон"
+            );
+
+            Book magic = new Book(
+                    "Магия утра",
+                    340,
+                    2000,
+                    "Хэл Элрод"
             );
 
             repository.saveAll(
-                    List.of(life_ex, gordosty)
+                    List.of(picture, reachest, magic)
             );
 
         };
