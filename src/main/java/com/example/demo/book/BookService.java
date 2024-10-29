@@ -40,7 +40,6 @@ public class BookService {
         bookRepository.deleteById(book_id);
     }
 
-
     @Transactional
     public void updateBook(Long bookId, String name,
                            int pages, int price,
