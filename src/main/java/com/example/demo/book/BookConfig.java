@@ -37,8 +37,6 @@ public class BookConfig {
             repository.saveAll(
                     List.of(picture, reachest, magic)
             );
-
         };
     }
-
 }
