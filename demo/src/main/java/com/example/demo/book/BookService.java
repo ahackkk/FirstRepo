@@ -1,15 +1,19 @@
 package com.example.demo.book;
 
-import org.springframework.stereotype.Component;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
-@Component
+@Service
 public class BookService {
 
     private final BookRepository bookRepository;
 
+    @Autowired
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
@@ -22,9 +26,43 @@ public class BookService {
         Optional<Book> bookByName = bookRepository
                 .findBookByName(book.getName());
         if (bookByName.isPresent()) {
-            throw new IllegalStateException("Книга с таким названием уже существуется");
-
+            throw new IllegalStateException("Книга с таким названием уже существует");
         }
+        bookRepository.save(book);
+    }
+
+    public void deleteBook(Long book_id) {
+        boolean exists = bookRepository.existsById(book_id);
+        if (!exists) {
+            throw new IllegalStateException("Book with id " + " does not exist");
+        }
+        bookRepository.deleteById(book_id);
+    }
+
+    @Transactional
+    public void updateBook(Long bookId, String name,
+                           int pages, int price,
+                           String author) {
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new IllegalStateException(
+                        "Book with id " + bookId + " doesn't exist"));
+
+        if (name != null && name.length() > 0 && !Objects.equals(book.getName(), name)) {
+            book.setName(name);
+        }
+
+        if (pages > 0 && !Objects.equals(book.getPages(), pages)) {
+            book.setPages(pages);
+        }
+
+        if (price > 0 && !Objects.equals(book.getPrice(), price)) {
+            book.setPrice(price);
+        }
+
+        if (author != null && author.length() > 0 && !Objects.equals(book.getAuthor(), author)) {
+            book.setAuthor(author);
+        }
+
         bookRepository.save(book);
     }
 }

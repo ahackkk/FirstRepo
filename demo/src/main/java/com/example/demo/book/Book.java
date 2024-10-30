@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 @Table
 public class Book {
 
+
     @Id
     @SequenceGenerator(
             name = "books",

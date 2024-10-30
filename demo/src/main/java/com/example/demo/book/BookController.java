@@ -22,8 +22,22 @@ public class BookController {
     }
 
     @PostMapping
-    public void addBook(@RequestBody Book book) {
+    public void addBook(@RequestBody Book book){
         bookService.addNewBook(book);
     }
-}
 
+    @DeleteMapping(path = "{book_id}")
+    public void deleteBook(@PathVariable("book_id") Long book_id){
+        bookService.deleteBook(book_id);
+    }
+
+    @PutMapping(path = "{book_id}")
+    public void updateBook(
+            @PathVariable("book_id") Long book_id,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) int pages,
+            @RequestParam(required = false) int price,
+            @RequestParam(required = false) String author){
+        bookService.updateBook(book_id, name, pages, price, author);
+    }
+}

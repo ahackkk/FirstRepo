@@ -10,23 +10,45 @@ import java.util.List;
 public class BookConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(BookRepository repository) {
+    CommandLineRunner commandLineRunner(
+            BookRepository repository){
         return args -> {
-            Book Dorian_Gray = new Book(
-                    "The Picture of Dorian Gray",
+            Book picture = new Book(
+                    "Картина Дориана Грэя",
                     198,
-                    1600,
-                    "George Wasilton"
+                    1400,
+                    "Оскар Уайльд"
             );
-            Book Vavilons_Richest_Men = new Book(
-                    "Richest men of Vavilon",
-                    172,
+
+            Book reachest = new Book(
+                    "Самый богатый человек в Вавилоне",
+                    242,
                     1200,
-                    "One wise man"
+                    "Джордж Самюэль Клейсон"
+            );
+
+            Book magic = new Book(
+                    "Магия утра",
+                    340,
+                    2000,
+                    "Хэл Элрод"
+            );
+            Book harry = new Book(
+                    "Гарри Поттер",
+                    310,
+                    2200,
+                    "Джоан Роулинг"
+            );
+
+            Book SAT = new Book(
+                    "SAT in 2 months",
+                    400,
+                    4200,
+                    "Erica Meltzer"
             );
 
             repository.saveAll(
-                    List.of(Dorian_Gray, Vavilons_Richest_Men)
+                    List.of(picture, reachest, magic, harry, SAT)
             );
         };
     }
